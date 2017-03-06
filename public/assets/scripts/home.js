@@ -16,7 +16,7 @@ $(document).ready(function () {
         '<p>' + data[i].title + '</p>'+
         '<p>' + data[i].body + '</p>'+
         '<p>' + data[i].create_at + '</p>'+
-        '</div>'
+        '</div>')
     }
   })
 
