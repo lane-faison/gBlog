@@ -20,6 +20,6 @@ $(document).ready(function () {
 })
 
 $('.blog-square .thumbnail').hover(
-  function () { $(this).addClass('dimmed') }
+  function () { $(this).addClass('dimmed') },
   function () { $(this).removeClass('dimmed') }
 )
