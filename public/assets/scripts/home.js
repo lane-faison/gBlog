@@ -10,13 +10,14 @@ $(document).ready(function () {
       count++
       newId = data.length
 
-      $('.blogs').append(
-        '<div id=' + count + '>' +
-        '<p>' + data[i].author_id + '</p>'+
-        '<p>' + data[i].title + '</p>'+
-        '<p>' + data[i].body + '</p>'+
-        '<p>' + data[i].create_at + '</p>'+
-        '</div>'
+      $('.grid').append(
+        // '<div id=' + count + '>' +
+        // '<p>' + data[i].author_id + '</p>'+
+        // '<p>' + data[i].title + '</p>'+
+        // '<p>' + data[i].body + '</p>'+
+        // '<p>' + data[i].create_at + '</p>'+
+        // '</div>'
+        '<img src="./assets/images/mtn1.jpg">'
       )
     }
   })
