@@ -124,9 +124,6 @@ a.navbar-brand {
   transition: transform 0.8s ease;
 }
 
-.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
-  transform: scale(1.15);
-}
 
 .blog-title {
   color: #fff;
@@ -155,4 +152,8 @@ a.navbar-brand {
   left: 0;
   padding: 15px 50px;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
+  transform: scale(1.15);
 }
