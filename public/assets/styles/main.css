@@ -38,17 +38,4 @@ body {
 .grid-item img {
   display: block;
   max-width: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.blog-title, .blog-body {
-  z-index: 100;
-  position: absolute;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  left: 40%;
-  top: 50%;
 }

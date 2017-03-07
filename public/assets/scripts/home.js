@@ -12,7 +12,7 @@ $(document).ready(function () {
 
       $('.grid').append(
         '<div class="grid-item jumbotron"><img src="./assets/images/mtn1.jpg">' +
-        '<p class="blog-title">' + data[i].title + '</p>' +
+        '<h3 class="blog-title">' + data[i].title + '</h3>' +
         '<p class="blog-body">' + data[i].body + '</p>' +
         '</div>'
       )
