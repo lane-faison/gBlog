@@ -39,3 +39,7 @@ body {
   display: block;
   max-width: 100%;
 }
+
+.dimmed {
+  background: rgba(0, 0, 0, 0.58);
+}
