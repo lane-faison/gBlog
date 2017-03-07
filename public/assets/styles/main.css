@@ -123,16 +123,9 @@ a.navbar-brand {
   bottom: 0;
   margin: auto;
   overflow: hidden;
-  -webkit-transition: -webkit-transform 0.7s ease;
-  -moz-transition: -moz-transform 0.7s ease;
-  -o-transition: -o-transform 0.7s ease;
-  transition: transform 0.7s ease;
+  transition: transform 0.8s ease;
 }
 
 .blog-image:hover {
-  -webkit-transform: scale(1.10);
-  -moz-transform: scale(1.10);
-  -ms-transform: scale(1.10);
-  -o-transform: scale(1.10);
-  transform: scale(1.10);
+  transform: scale(1.15);
 }
