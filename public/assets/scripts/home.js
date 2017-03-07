@@ -17,10 +17,6 @@ $(document).ready(function () {
   })
 })
 
-$('.thumbnail').on('mouseover', function () {
-    $('.blog-body').show()
-    // $('.blog-title').hide()
-},function () {
-    $(".blog-body").hide()
-    // $('.blog-title').show()
+$(document).on('mouseover','.thumbnail', function () {
+  $('.blog-body').toggleClass('blog-body')
 })
