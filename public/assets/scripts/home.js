@@ -21,14 +21,9 @@ $(document).ready(function () {
 $(document).on('mouseover','#blog-section', function () {
   $(this).find('.blog-body').show()
   $(this).find('.blog-title').hide()
-
-  // $('#blog-section .blog-body').show()
-  // $('#blog-section .blog-title').hide()
 })
 
 $(document).on('mouseleave','#blog-section', function () {
   $(this).find('.blog-body').hide()
   $(this).find('.blog-title').show()
-  // $('#blog-section .blog-body').hide()
-  // $('#blog-section .blog-title').show()
 })
