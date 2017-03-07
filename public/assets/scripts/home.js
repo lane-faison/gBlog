@@ -11,7 +11,7 @@ $(document).ready(function () {
       newId = data.length
 
       $('.blog-space').append(
-        `<div class="thumbnail" id=${count}><img src="${data[i].image}"></div>`
+        `<div class="col-sm-6 col-md-4"><div class="thumbnail" id=${count}><img src="${data[i].image}"></div></div>`
 
         // <h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${data[i].body}</p></div>
       )
