@@ -19,8 +19,8 @@ $(document).ready(function () {
 
 $('.thumbnail').hover(function () {
     $('.blog-body').show()
-    $('.blog-title').hide()
+    // $('.blog-title').hide()
 },function () {
     $(".blog-body").hide()
-    $('.blog-title').show()
+    // $('.blog-title').show()
 })
