@@ -128,4 +128,5 @@ a.navbar-brand {
 
 .blog-image:hover {
   transform: scale(1.15);
+  background: rgba(0, 0, 0, 0.3);
 }
