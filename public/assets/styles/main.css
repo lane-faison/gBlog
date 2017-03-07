@@ -15,7 +15,7 @@ main {
   margin-top: 50px;
 }
 
-/******************** grid ********************/
+/******************** GRID ********************/
 
 .grid {
   background: #DDD;
@@ -28,7 +28,7 @@ main {
   clear: both;
 }
 
-/******************** .grid-item ********************/
+/******************** GRID ITEM ********************/
 
 .grid-sizer,
 .grid-item {
@@ -46,6 +46,10 @@ main {
 
 .dimmed {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.blog-title, .blog-body {
+  text-align: center;
 }
 
 /********************** FOOTER **********************/
