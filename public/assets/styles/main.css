@@ -139,6 +139,7 @@ a.navbar-brand {
 }
 
 .blog-body {
+  display: none;
   color: #fff;
   position: absolute;
   top: 0;
