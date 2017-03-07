@@ -63,36 +63,7 @@ a.navbar-brand {
   font-weight: bolder;
 }
 
-
-
-/******************** GRID ********************/
-
-.grid {
-  background: #DDD;
-}
-
-/* clear fix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 /******************** GRID ITEM ********************/
-
-.grid-sizer,
-.grid-item {
-  width: 33.333%;
-}
-
-.grid-item {
-  float: left;
-}
-
-.grid-item img {
-  display: block;
-  max-width: 100%;
-}
 
 .dimmed {
   background: rgba(0, 0, 0, 0.5);
@@ -100,6 +71,15 @@ a.navbar-brand {
 
 .blog-title, .blog-body {
   text-align: center;
+}
+
+.thumbnail {
+  padding: none;
+  border: none;
+}
+
+.col-sm-6 .col-md-4 {
+  padding: 0;
 }
 
 /********************** FOOTER **********************/
