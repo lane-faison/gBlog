@@ -17,10 +17,7 @@ $(document).ready(function () {
   })
 })
 
-$(document).on('mouseover','#dammit', function () {
+$(document).on('mouseover mouseleave','#dammit', function () {
   $('#dammit .blog-body').show()
   $('#dammit .blog-title').hide()
-}, function () {
-  $('#dammit .blog-body').hide()
-  $('#dammit .blog-title').show()
 })
