@@ -23,7 +23,7 @@ $(document).ready(function () {
 
   $('.grid').on('mouseover', () => {
     $(this).addClass('dimmed')
-  }
+  })
   $('.grid').on('mouseleave', () => {
     $(this).removeClass('dimmed')
   })
