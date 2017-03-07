@@ -154,6 +154,10 @@ a.navbar-brand {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
+/*.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
+  transform: scale(1.15);
+}*/
+
+.blog-square:hover .blog-image {
   transform: scale(1.15);
 }
