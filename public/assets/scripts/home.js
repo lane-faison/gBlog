@@ -21,10 +21,10 @@ $(document).ready(function () {
     }
   })
 
-  $('.grid').on('mouseover', () => {
+  $('.grid').on('mouseover', event => {
     $(this).addClass('dimmed')
   })
-  $('.grid').on('mouseleave', () => {
+  $('.grid').on('mouseleave', event => {
     $(this).removeClass('dimmed')
   })
 })
