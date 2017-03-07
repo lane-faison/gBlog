@@ -11,12 +11,12 @@ $(document).ready(function () {
       newId = data.length
 
       $('.blog-space').append(
-        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id=${count}><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3></div></div>`
+        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="dammit"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3></div></div>`
       )
     }
   })
 })
 
-$(document).on('mouseover','.thumbnail', function () {
+$(document).on('mouseover','#dammit', function () {
   $(this).append(`<p>${data[i].body}</p>`)
 })
