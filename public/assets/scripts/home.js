@@ -18,5 +18,5 @@ $(document).ready(function () {
 })
 
 $(document).on('mouseover','#dammit', function () {
-  $(this).append(`<p class="blog-body">${data[i].body}</p>`)
+  $('#dammit').append(`<p class="blog-body">${data[i].body}</p>`)
 })
