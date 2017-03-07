@@ -5,15 +5,15 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('blogpost').insert([
-        {author_id: 1, title: 'title1', body: 'something1 something1 something1'},
-        {author_id: 2, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 3, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 1, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 2, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 3, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 1, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 2, title: 'title2', body: 'something2 something2 something2'},
-        {author_id: 3, title: 'title2', body: 'something2 something2 something2'}
+        {author_id: 1, title: 'title1', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn1.jpg'},
+        {author_id: 2, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn2.jpg'},
+        {author_id: 3, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn3.jpg'},
+        {author_id: 1, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn3.jpg'},
+        {author_id: 2, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn2.jpg'},
+        {author_id: 3, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn1.jpg'},
+        {author_id: 1, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn1.jpg'},
+        {author_id: 2, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn2.jpg'},
+        {author_id: 3, title: 'title2', body: 'This is where the body of the blogpost will go.', image: './assets/images/mtn3.jpg'}
       ])
     })
 }

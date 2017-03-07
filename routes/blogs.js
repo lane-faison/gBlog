@@ -23,7 +23,8 @@ router.post('/blogpost/', (req, res) => {
   Blogpost().insert({
     author_id: req.body.author_id,
     title: req.body.title,
-    body: req.body.body
+    body: req.body.body,
+    image: req.body.image
   },['author_id', 'title', 'body'])
   .then( result => {
     res.json(result)
@@ -108,7 +109,8 @@ router.put('/blogpost/:id', (req, res) => {
   Blogpost().where('id', req.params.id).update({
     author_id: req.body.author_id,
     title: req.params.title,
-    body: req.params.body
+    body: req.params.body,
+    image: req.params.image
   }, ['author_id','title','body'])
   .then( result => {
     res.json(result)
