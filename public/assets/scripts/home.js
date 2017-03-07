@@ -11,18 +11,23 @@ $(document).ready(function () {
       newId = data.length
 
       $('.blog-space').append(
-        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="dammit"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${data[i].body}</p></div></div>`
+        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="blog-section"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${data[i].body}</p></div></div>`
       )
     }
   })
 })
 
-$(document).on('mouseover','blog-square', function () {
-  $('blog-square .thumbnail .blog-body').show()
-  $('blog-square .thumbnail .blog-title').hide()
+$(document).on('mouseover','#blog-section', function () {
+  $(this).find('.blog-body').show()
+  $(this).find('.blog-title').hide()
+
+  // $('#blog-section .blog-body').show()
+  // $('#blog-section .blog-title').hide()
 })
 
-$(document).on('mouseleave','blog-square .thumbnail', function () {
-  $('blog-square .thumbnail .blog-body').hide()
-  $('blog-square .thumbnail .blog-title').show()
+$(document).on('mouseleave','#blog-section', function () {
+  $(this).find('.blog-body').hide()
+  $(this).find('.blog-title').show()
+  // $('#blog-section .blog-body').hide()
+  // $('#blog-section .blog-title').show()
 })
