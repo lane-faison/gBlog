@@ -17,7 +17,7 @@ $(document).ready(function () {
   })
 })
 
-$('.thumbnail').hover(function () {
+$('.thumbnail').on('mouseover', function () {
     $('.blog-body').show()
     // $('.blog-title').hide()
 },function () {
