@@ -78,7 +78,7 @@ a.navbar-brand {
   border: none;
 }
 
-.col-sm-6 .col-md-4 {
+.row .col-sm-6, .row .col-md-4 {
   padding: 0;
 }
 
