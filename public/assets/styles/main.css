@@ -76,6 +76,7 @@ a.navbar-brand {
 .thumbnail {
   padding: none;
   border: none;
+  margin-bottom: 0;
 }
 
 .row .col-sm-6, .row .col-md-4 {
