@@ -124,9 +124,8 @@ a.navbar-brand {
   transition: transform 0.8s ease;
 }
 
-.blog-image:hover {
+.blog-title, .blog-body, .blog-name, .blog-image:hover {
   transform: scale(1.15);
-  border: 20px solid rgba(138, 187, 255, 0.5);
 }
 
 .blog-title {
