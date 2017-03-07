@@ -17,12 +17,12 @@ $(document).ready(function () {
   })
 })
 
-$(document).on('mouseover','#dammit', function () {
-  $('#dammit .blog-body').show()
-  $('#dammit .blog-title').hide()
+$(document).on('mouseover','blog-square', function () {
+  $('blog-square .thumbnail .blog-body').show()
+  $('blog-square .thumbnail .blog-title').hide()
 })
 
-$(document).on('mouseleave','#dammit', function () {
-  $('#dammit .blog-body').hide()
-  $('#dammit .blog-title').show()
+$(document).on('mouseleave','blog-square .thumbnail', function () {
+  $('blog-square .thumbnail .blog-body').hide()
+  $('blog-square .thumbnail .blog-title').show()
 })
