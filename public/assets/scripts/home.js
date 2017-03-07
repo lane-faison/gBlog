@@ -11,13 +11,16 @@ $(document).ready(function () {
       newId = data.length
 
       $('.blog-space').append(
-        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id=${count}><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3></div></div>`
+        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id=${count}><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${data[i].body}</p></div></div>`
       )
     }
   })
 })
 
-$('.blog-square .thumbnail').hover(
-  function () { $(this).addClass('dimmed') },
-  function () { $(this).removeClass('dimmed') }
-)
+$('.thumbnail').hover(function () {
+    $('.blog-body').show()
+    $('.blog-title').hide()
+},function () {
+    $(".blog-body").hide()
+    $('.blog-title').show()
+})
