@@ -131,8 +131,8 @@ a.navbar-brand {
 .blog-title {
   color: #fff;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 100%;
+  left: 0;
   padding: 15px 50px;
   background: rgba(0, 0, 0, 0.3);
 }
