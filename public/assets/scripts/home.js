@@ -17,7 +17,12 @@ $(document).ready(function () {
   })
 })
 
-$(document).on('mouseover mouseleave','#dammit', function () {
+$(document).on('mouseover','#dammit', function () {
   $('#dammit .blog-body').show()
   $('#dammit .blog-title').hide()
+})
+
+$(document).on('mouseleave','#dammit', function () {
+  $('#dammit .blog-body').hide()
+  $('#dammit .blog-title').show()
 })
