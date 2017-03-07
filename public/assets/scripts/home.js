@@ -18,6 +18,6 @@ $(document).ready(function () {
 })
 
 $(document).on('mouseover','#dammit', function () {
-  $('#dammit.p').show()
-  $('#dammit.h3').hide()
+  $('#dammit .blog-body').show()
+  $('#dammit .blog-title').hide()
 })
