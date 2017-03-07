@@ -24,7 +24,7 @@ main {
   color: #eee;
 }
 
-.navbar-nav li a {
+#blog-nav-left>li>a, #blog-nav-right>li>a {
   color: #eee;
 }
 
