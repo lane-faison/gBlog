@@ -10,8 +10,8 @@ $(document).ready(function () {
       count++
       newId = data.length
 
-      $('.grid').append(
-        `<div class="grid-item" id=${count}><img src="${data[i].image}">`
+      $('.blog-space').append(
+        `<div class="thumbnail" id=${count}><img src="${data[i].image}"></div>`
 
         // <h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${data[i].body}</p></div>
       )
