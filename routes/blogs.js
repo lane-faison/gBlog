@@ -62,8 +62,12 @@ router.get('/author/:id', (req, res) => {
 
 // READ BLOGPOSTS
 router.get('/blogpost', (req, res) => {
-  Blogpost().select()
+  // Blogpost().select()
+  knex('blogpost')
+  .join('author', 'blogpost.author_id','=','author.id')
+  .select('blogpost.*','author.name')
   .then( result => {
+    console.log(result)
     res.json(result)
   })
 })
