@@ -126,7 +126,7 @@ a.navbar-brand {
 
 .blog-image:hover {
   transform: scale(1.15);
-  background: rgba(0, 0, 0, 0.3);
+  border: 5px solid rgba(138, 187, 255, 0.5);
 }
 
 .blog-title {
