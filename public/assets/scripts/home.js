@@ -11,13 +11,10 @@ $(document).ready(function () {
       newId = data.length
 
       $('.grid').append(
-        // '<div id=' + count + '>' +
-        // '<p>' + data[i].author_id + '</p>'+
-        // '<p>' + data[i].title + '</p>'+
-        // '<p>' + data[i].body + '</p>'+
-        // '<p>' + data[i].create_at + '</p>'+
-        // '</div>'
-        '<div class="grid-item"><img src="./assets/images/mtn1.jpg"></div>'
+        '<div class="grid-item"><img src="./assets/images/mtn1.jpg">' +
+        '<p class="blog-title">' + data[i].title + '</p>' +
+        '<p class="blog-body">' + data[i].body + '</p>' +
+        '</div>'
       )
     }
   })
