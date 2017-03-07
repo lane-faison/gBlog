@@ -1,6 +1,3 @@
-/** {
-  box-sizing: border-box;
-}*/
 
 /* force scrollbar */
 html {
@@ -63,6 +60,31 @@ a.navbar-brand {
   font-weight: bolder;
 }
 
+/********************** FOOTER **********************/
+.navbar-fixed-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.footer-link {
+  color: #8abbff;
+}
+
+.footer-link:hover {
+  color: #47ff66;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/***************************************************/
+/******************** HOME PAGE ********************/
+/***************************************************/
+
 /******************** GRID ITEM ********************/
 
 .dimmed {
@@ -101,19 +123,4 @@ a.navbar-brand {
   bottom: 0;
   margin: auto;
   overflow: hidden;
-}
-
-/********************** FOOTER **********************/
-.navbar-fixed-bottom {
-  display: flex;
-  align-items: center;
-}
-
-.footer-link {
-  color: #8abbff;
-}
-
-.footer-link:hover {
-  color: #47ff66;
-  text-decoration: none;
 }

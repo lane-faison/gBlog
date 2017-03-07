@@ -19,10 +19,9 @@ $(document).ready(function () {
   })
 })
 
-
-// $('.grid').on('mouseover', event => {
-//   $(this).addClass('dimmed')
-// })
-// $('.grid').on('mouseleave', event => {
-//   $(this).removeClass('dimmed')
-// })
+$('.thumbnail').on('mouseover', function () {
+  $(this).addClass('dimmed');
+})
+$('.thumbnail').on('mouseleave', function () {
+  $(this).removeClass('dimmed');
+})
