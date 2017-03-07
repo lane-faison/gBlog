@@ -10,7 +10,7 @@ html {
 body {
   font-family: sans-serif;
   background: #000;
-  margin: 10px;
+  margin: 15px;
 }
 
 main {
@@ -21,6 +21,7 @@ main {
 
 .navbar-default {
   background: #000;
+  color: #eee;
 }
 
 /******************** GRID ********************/
