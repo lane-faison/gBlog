@@ -11,7 +11,7 @@ $(document).ready(function () {
       newId = data.length
 
       $('.grid').append(
-        '<div class="grid-item"><img src="./assets/images/mtn1.jpg">' +
+        '<div class="grid-item jumbotron"><img src="./assets/images/mtn1.jpg">' +
         '<p class="blog-title">' + data[i].title + '</p>' +
         '<p class="blog-body">' + data[i].body + '</p>' +
         '</div>'
