@@ -12,7 +12,7 @@ $(document).ready(function () {
       var bodySlice = data[i].body.slice(0,200) + '...'
 
       $('.blog-space').append(
-        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="blog-section"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${bodySlice}</p><p class="blog-name">${data[i].name}</p></div></div>`
+        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="blog-section"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${bodySlice}</p><p class="blog-name">'Written by ' + ${data[i].name}</p></div></div>`
       )
     }
   })
