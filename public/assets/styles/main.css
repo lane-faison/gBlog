@@ -124,7 +124,7 @@ a.navbar-brand {
   transition: transform 0.8s ease;
 }
 
-.blog-title:hover, .blog-body:hover, .blog-name:hover, .blog-image:hover, .blog-image {
+.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
   transform: scale(1.15);
 }
 
