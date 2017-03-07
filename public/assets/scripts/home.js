@@ -17,7 +17,7 @@ $(document).ready(function () {
         // '<p>' + data[i].body + '</p>'+
         // '<p>' + data[i].create_at + '</p>'+
         // '</div>'
-        '<img src="./assets/images/mtn1.jpg">'
+        '<div class="grid-item"><img src="./assets/images/mtn1.jpg"></div>'
       )
     }
   })
