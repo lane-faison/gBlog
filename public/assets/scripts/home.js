@@ -1,14 +1,18 @@
 var count = 0
-var newId = 0
 
 $(document).ready(function () {
+  //GET ALL THE AUTHORS
+  $.get('blogs/author', data => {
+    newId = data.length
+    console.log('Number of authors in database: ' + newId)
+  })
 
   //GET ALL THE BLOGPOSTS
   $.get('/blogs/blogpost', data => {
     for (var i = 0; i < data.length; i++) {
 
       count++
-      newId = data.length
+
       var bodySlice = data[i].body.slice(0,200) + '...'
 
       $('.blog-space').append(
@@ -29,3 +33,41 @@ $(document).on('mouseleave','#blog-section', function () {
   $(this).find('.blog-name').hide()
   $(this).find('.blog-title').show()
 })
+
+// CREATING A NEW BLOG
+$(document).on('click', '.add-blog-btn', function (event) {
+  event.preventDefault()
+
+  var newBlogpost = {
+    email: $('#InputEmail').val(),
+    name: $('#InputName').val(),
+    title: $("#InputTitle").val(),
+    body: $("#InputBlog").val(),
+    image: $("#InputImage").val()
+  }
+
+  $.post('/blogs/blogpost', newBlogpost, function (result) {
+    console.log(result)
+  })
+})
+
+
+
+// Name: $("#InputName").val(),
+// Email: $("#InputEmail").val(),
+// $.ajax({
+//   url: '/movies',
+//   type: 'POST',
+//   data: newMovie,
+//   success: function (results) {
+//     $('.results').append('<p>' + $('#movieTitle').val() + ' successfully added!</p>')
+//     $('.results').fadeOut(5000)
+//   }
+// })
+
+// // First, check if email address already exists in author table
+// $.get('/blogs/blogpost', data => {
+//   for (var i = 0; i < data.length; i++) {
+//     if ($("#InputEmail".val() === data[i].email)
+//   }
+// })

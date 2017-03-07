@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 8000
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static("./public"))
+app.use(express.static("public"))
 app.use('/blogs', gblogs)
 
 app.listen(PORT, () => {

@@ -20,16 +20,90 @@ router.post('/author/', (req, res) => {
 
 // CREATE BLOGPOST
 router.post('/blogpost/', (req, res) => {
-  Blogpost().insert({
-    author_id: req.body.author_id,
-    title: req.body.title,
-    body: req.body.body,
-    image: req.body.image
-  },['author_id', 'title', 'body'])
+
+  var userID;
+
+  // check req.body.email
+
+  knex('author').where('email', req.body.email).select('id')
   .then( result => {
-    res.json(result)
+    console.log("userID found!")
+    userID = result[0].id
+    console.log('result is: ', result);
+    //Create blog
+    return Blogpost().insert({
+      author_id: userID,
+      title: req.body.title,
+      body: req.body.body,
+      image: req.body.image
+    },['author_id', 'title', 'body', 'image'])
+    .then( result => {
+      res.json(result)
+    })
+  })
+  .catch( result => {
+    console.log(`UserID not found, new userID is ${userID}`)
+    //Create new author
+    knex('author').insert({email: req.body.email, name: req.body.name}, 'id')
+    //Create blog
+    .then( result => {
+      return Blogpost().insert({
+        author_id: result[0],
+        title: req.body.title,
+        body: req.body.body,
+        image: req.body.image
+      },['author_id', 'title', 'body', 'image'])
+      .then( result => {
+        res.json(result)
+      })
+    })
   })
 })
+
+
+// // check req.body.email
+  // var foundID = knex('author').where('email', req.body.email).select('id')
+  //
+  // if (foundID) {
+  //   userID = foundID
+  //   console.log("userID found!")
+  //   //Create blog
+  //   Blogpost().insert({
+  //     author_id: userID,
+  //     title: req.body.title,
+  //     body: req.body.body,
+  //     image: req.body.image
+  //   },['author_id', 'title', 'body', 'image'])
+  //   .then( result => {
+  //     res.json(result)
+  //   })
+  // }
+//
+  // else if (!foundID) {
+  //   userID = authorTotal + 1
+  //   console.log(`UserID not found, new userID is ${userID}`)
+  //   //Create new author
+  //   knex('author').insert(`{email: ${req.body.email}, name: ${req.body.name}`)
+  //   //Create blog
+  //   Blogpost().insert({
+  //     author_id: userID,
+  //     title: req.body.title,
+  //     body: req.body.body,
+  //     image: req.body.image
+  //   },['author_id', 'title', 'body', 'image'])
+  //   .then( result => {
+  //     res.json(result)
+  //   })
+  // }
+//
+//   else { console.log("something went wrong") }
+//
+//   // if it doesn't, insert into users table THEN insert into blogpost with new user id.
+//
+//
+//
+// })
+
 
 // CREATE COMMENT
 router.post('/comment/', (req, res) => {
@@ -46,8 +120,10 @@ router.post('/comment/', (req, res) => {
 //******************** READ ************************//
 // READ AUTHORS
 router.get('/author', (req, res) => {
+  var authorTotal;
   Author().select()
   .then( result => {
+    console.log("authorTotal is " + authorTotal)
     res.json(result)
   })
 })
@@ -67,7 +143,6 @@ router.get('/blogpost', (req, res) => {
   .join('author', 'blogpost.author_id','=','author.id')
   .select('blogpost.*','author.name')
   .then( result => {
-    console.log(result)
     res.json(result)
   })
 })

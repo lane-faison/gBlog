@@ -24,11 +24,11 @@ main {
 
 .active {
   background: #8abbff;
+  color: #000;
 }
 
 .active:hover {
   background: #8abbff;
-  color: #000;
 }
 
 .navbar-header .navbar-brand {
@@ -59,6 +59,7 @@ a.navbar-brand {
 
 #blog-nav-left>li>a:hover {
   background: #8abbff;
+  color: #000;
   font-weight: bolder;
 }
 
@@ -154,10 +155,20 @@ a.navbar-brand {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/*.blog-title:hover .blog-image, .blog-body:hover .blog-image, .blog-name:hover .blog-image, .blog-image:hover .blog-image {
-  transform: scale(1.15);
-}*/
-
 .blog-square:hover .blog-image {
   transform: scale(1.15);
+}
+
+/***************************************************/
+/******************* CREATE BLOG *******************/
+/***************************************************/
+
+.add-blog-btn {
+  background: #8abbff;
+  text-shadow: none;
+}
+
+.add-blog-btn:hover {
+  background: #47ff66;
+  font-weight: bold;
 }
