@@ -4,7 +4,7 @@ var newId = 0
 $(document).ready(function () {
 
   //GET ALL THE BLOGPOSTS
-  $.get('/blogpost', data => {
+  $.get('/public/blogpost', data => {
     for (var i = 0; i < data.length; i++) {
 
       count++
