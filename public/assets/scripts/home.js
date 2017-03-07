@@ -12,7 +12,7 @@ $(document).ready(function () {
       var bodySlice = data[i].body.slice(0,200) + '...'
 
       $('.blog-space').append(
-        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="blog-section"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${bodySlice}</p></div></div>`
+        `<div class="blog-square col-sm-6 col-md-4"><div class="thumbnail" id="blog-section"><img class="blog-image" src="${data[i].image}"><h3 class="blog-title">${data[i].title}</h3><p class="blog-body">${bodySlice}</p><p class="blog-name">${data[i].name}</p></div></div>`
       )
     }
   })
@@ -20,10 +20,12 @@ $(document).ready(function () {
 
 $(document).on('mouseover','#blog-section', function () {
   $(this).find('.blog-body').show()
+  $(this).find('.blog-name').show()
   $(this).find('.blog-title').hide()
 })
 
 $(document).on('mouseleave','#blog-section', function () {
   $(this).find('.blog-body').hide()
+  $(this).find('.blog-name').hide()
   $(this).find('.blog-title').show()
 })
