@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: sans-serif;
-  background: #eee;
+  background: #333;
   margin: 15px;
 }
 
@@ -77,11 +77,6 @@ a.navbar-brand {
   color: #47ff66;
   text-decoration: none;
 }
-
-
-
-
-
 
 
 /***************************************************/
@@ -162,13 +157,61 @@ a.navbar-brand {
 /***************************************************/
 /******************* CREATE BLOG *******************/
 /***************************************************/
-
-.add-blog-btn {
-  background: #8abbff;
-  text-shadow: none;
+form {
+  padding: 50px;
 }
 
-.add-blog-btn:hover {
+.form-main {
+  margin: 150px;
+  background: #eee;
+  border-radius: 25px;
+  width: 700px;
+  height: 781px;
+}
+
+.response-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-blog-btn, .back-blog-btn {
+  background: #8abbff;
+  text-shadow: none;
+  height: 30px;
+}
+
+.add-blog-btn:hover, .back-blog-btn:hover {
   background: #47ff66;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.back-blog-btn, .blog-response {
+  display: none;
+}
+
+.blog-response {
+  padding: 0 20px;
+  text-align: center;
+}
+
+
+input[type="name"], input[type="email"], input[type="title"] {
+  width: 400px;
+}
+
+input[type="link"] {
+  width: 600px;
+}
+
+input[type="blog"] {
+  width: 600px;
+  height: 300px;
+  vertical-align: top;
+}
+
+/**********************TESTING**********************/
+.blogIDview {
+  margin-top: 200px;
+  color: #fff;
 }

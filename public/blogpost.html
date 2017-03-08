@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Create Your Blogpost</title>
+    <title>BLOG TITLE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- JAVASCRIPT -->
-    <script src="./assets/scripts/home.js"></script>
+    <script src="./assets/scripts/blogview.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href='./assets/styles/main.css'>
@@ -31,46 +31,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./home.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></a>
+          <a class="navbar-brand" href="home.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav" id="blog-nav-left">
             <li ><a href="#">Contributors</a></li>
-            <li><a href="#" class="active">Add Your Own Blogpost</a></li>
+            <li><a href="createblog.html">Add Your Own Blogpost</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <main class="form-main">
-      <form>
-        <div class="form-group">
-          <label for="InputName">Name</label>
-          <input type="name" class="form-control" id="InputName" placeholder="Name">
-        </div>
-        <div class="form-group">
-          <label for="InputEmail">Email Address</label>
-          <input type="email" class="form-control" id="InputEmail" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label for="InputTitle">Blogpost Title</label>
-          <input type="title" class="form-control" id="InputTitle" placeholder="Title">
-        </div>
-        <div class="form-group">
-          <label for="InputImage">Image Link (please choose a high-resolution photo)</label>
-          <input type="link" class="form-control" id="InputImage" placeholder="Paste a link to your image here (e.g. http://www.example.com/imagename.jpg)">
-        </div>
-        <div class="form-group">
-          <label for="InputBlog">Blogpost</label>
-          <input type="blog" class="form-control" id="InputBlog">
-        </div>
-        <div class="response-div">
-          <button type="submit" class="add-blog-btn btn btn-default">Submit</button>
-          <p class="blog-response">Thank you for your post! Click 'Home' to return to main page, or stay here to make another post.</p>
-          <a href="home.html"><button type="button" class="back-blog-btn btn btn-default">Home</button></a>
-        </div>
-      </form>
+    <main>
+
     </main>
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <div class="container-fluid">

@@ -23,8 +23,6 @@ router.post('/blogpost/', (req, res) => {
 
   var userID;
 
-  // check req.body.email
-
   knex('author').where('email', req.body.email).select('id')
   .then( result => {
     console.log("userID found!")
@@ -120,10 +118,8 @@ router.post('/comment/', (req, res) => {
 //******************** READ ************************//
 // READ AUTHORS
 router.get('/author', (req, res) => {
-  var authorTotal;
   Author().select()
   .then( result => {
-    console.log("authorTotal is " + authorTotal)
     res.json(result)
   })
 })
