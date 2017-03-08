@@ -204,10 +204,34 @@ input[type="link"] {
   width: 600px;
 }
 
-input[type="blog"] {
-  width: 600px;
+#InputBlog {
+  max-width: 600px;
   height: 300px;
+  max-height: 300px;
   vertical-align: top;
+}
+
+/********************** UPDATING **********************/
+
+.edit-form-main {
+  margin: 150px;
+  background: #eee;
+  border-radius: 25px;
+  width: 700px;
+  height: 750px;
+}
+
+.editHeader {
+  margin-bottom: 20px;
+}
+
+.editHeader h2 {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.edit-title {
+  font-weight: bold;
 }
 
 /**********************TESTING**********************/

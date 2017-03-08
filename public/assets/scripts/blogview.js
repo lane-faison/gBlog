@@ -4,7 +4,7 @@ $(document).ready(function () {
 
   idBlog = getUrlParameter('id')
 
-  //GET ALL THE BLOGPOSTS
+  //GET THE BLOGPOST
   $.get(`/blogs/blogpost/${idBlog}`, data => {
 
     console.log(data)
@@ -18,18 +18,14 @@ $(document).ready(function () {
     <h4>Written by ${data.name}</h4>
     <h5>Posted: ${date}</h5>
     <p>${data.body}</p>
-    <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="#" role="button">Edit Post</a>
+    <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button">Edit Post</a>
     </p><p><a class="btn btn-primary btn-blogview btn-delete btn-lg" href="#" role="button">Delete Post</a></p>
     </div>
     <section class="comment-section">
     <p>comments</p>
     </section></div></div>`)
-
   })
 })
-
-
-
 
 function getUrlParameter(sParam) {
   const sPageURL = decodeURIComponent(window.location.search.substring(1))

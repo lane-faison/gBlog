@@ -1,0 +1,59 @@
+$(document).ready(function () {
+
+  idBlog = getUrlParameter('id')
+
+  //GET THE BLOGPOST
+  $.get(`/blogs/blogpost/${idBlog}`, data => {
+
+    console.log(data)
+
+    const date = data.create_at.slice(0,10)
+
+    // $('#InputName').val(`${data.name}`)
+    // $('#InputEmail').val(`${data.email}`)
+    $('.editHeader').append(`<h2 class="edit-title">${data.title}</h2>`)
+    $('#InputTitle').val(`${data.title}`)
+    $('#InputImage').val(`${data.image}`)
+    $('#InputBlog').val(`${data.body}`)
+  })
+})
+
+// UPDATING THE BLOGPOST
+$(document).on('click', '.add-blog-btn', function (event) {
+
+  var updatedBlogpost = {
+    title: $("#InputTitle").val(),
+    body: $("#InputBlog").val(),
+    image: $("#InputImage").val()
+  }
+
+  // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
+  if ($.trim($('#InputTitle').val()) === "" || $.trim($('#InputImage').val()) === "" || $.trim($('#InputBlog').val()) === "") {
+    event.preventDefault()
+    alert('Please complete all fields to update your post!')
+    return false
+  }
+  else {
+    event.preventDefault()
+    $.put(`/blogs/blogpost/${idBlog}`, updatedBlogpost, function (result) {
+      console.log(result)
+    })
+
+    $('.back-blog-btn').show()
+    $('.blog-response').show()
+  }
+})
+
+function getUrlParameter(sParam) {
+  const sPageURL = decodeURIComponent(window.location.search.substring(1))
+  const sURLVariables = sPageURL.split('&')
+  let returner
+
+  sURLVariables.forEach((paraName) => {
+    const sParameterName = paraName.split('=')
+    if (sParameterName[0] === sParam) {
+      returner = sParameterName[1] === undefined ? true : sParameterName[1]
+    }
+  })
+  return returner
+}

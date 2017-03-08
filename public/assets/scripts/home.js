@@ -45,6 +45,7 @@ $(document).on('click', '.add-blog-btn', function (event) {
     image: $("#InputImage").val()
   }
 
+  // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
   if ($.trim($('#InputName').val()) === "" || $.trim($('#InputEmail').val()) === "" || $.trim($('#InputTitle').val()) === "" || $.trim($('#InputImage').val()) === "" || $.trim($('#InputBlog').val()) === "") {
     event.preventDefault()
     alert('Please complete the entire blog form.')
