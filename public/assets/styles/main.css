@@ -215,3 +215,20 @@ input[type="blog"] {
   margin-top: 200px;
   color: #fff;
 }
+
+.jumbotron-img {
+  width: 75%;
+}
+
+.blogview-btns {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-blogview {
+  margin: 20px;
+}
+
+.btn-edit, .btn-delete {
+  background: red;
+}

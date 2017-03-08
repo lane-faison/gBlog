@@ -58,51 +58,6 @@ router.post('/blogpost/', (req, res) => {
   })
 })
 
-
-// // check req.body.email
-  // var foundID = knex('author').where('email', req.body.email).select('id')
-  //
-  // if (foundID) {
-  //   userID = foundID
-  //   console.log("userID found!")
-  //   //Create blog
-  //   Blogpost().insert({
-  //     author_id: userID,
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     image: req.body.image
-  //   },['author_id', 'title', 'body', 'image'])
-  //   .then( result => {
-  //     res.json(result)
-  //   })
-  // }
-//
-  // else if (!foundID) {
-  //   userID = authorTotal + 1
-  //   console.log(`UserID not found, new userID is ${userID}`)
-  //   //Create new author
-  //   knex('author').insert(`{email: ${req.body.email}, name: ${req.body.name}`)
-  //   //Create blog
-  //   Blogpost().insert({
-  //     author_id: userID,
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     image: req.body.image
-  //   },['author_id', 'title', 'body', 'image'])
-  //   .then( result => {
-  //     res.json(result)
-  //   })
-  // }
-//
-//   else { console.log("something went wrong") }
-//
-//   // if it doesn't, insert into users table THEN insert into blogpost with new user id.
-//
-//
-//
-// })
-
-
 // CREATE COMMENT
 router.post('/comment/', (req, res) => {
   BlogComment().insert({
@@ -134,7 +89,6 @@ router.get('/author/:id', (req, res) => {
 
 // READ BLOGPOSTS
 router.get('/blogpost', (req, res) => {
-  // Blogpost().select()
   knex('blogpost')
   .join('author', 'blogpost.author_id','=','author.id')
   .select('blogpost.*','author.name')
@@ -145,11 +99,26 @@ router.get('/blogpost', (req, res) => {
 
 // READ SPECIFIC BLOGPOST
 router.get('/blogpost/:id', (req, res) => {
-  Blogpost().where('id', req.params.id).first()
+  knex('blogpost')
+  .join('author', 'blogpost.author_id','=','author.id')
+  .select('blogpost.*','author.name')
+  .where('blogpost.id', req.params.id).first()
   .then( result => {
     res.json(result)
   })
+  .catch( result => {
+    res.status(404)
+    res.json('Blogpost not found')
+  })
 })
+
+// // **BEFORE EDITING: READ SPECIFIC BLOGPOST
+// router.get('/blogpost/:id', (req, res) => {
+//   Blogpost().where('id', req.params.id).first()
+//   .then( result => {
+//     res.json(result)
+//   })
+// })
 
 // READ COMMENTS
 router.get('/comment', (req, res) => {
