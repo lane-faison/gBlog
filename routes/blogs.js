@@ -71,6 +71,7 @@ router.post('/comment/', (req, res) => {
     return BlogComment().insert({
       author_id: userID,
       blogpost_id: req.body.blogpost_id,
+      author_name: req.body.name,
       body: req.body.body
     },['author_id', 'blogpost_id', 'body'])
     .then( result => {
@@ -85,6 +86,7 @@ router.post('/comment/', (req, res) => {
     .then( result => {
       return BlogComment().insert({
         author_id: result[0],
+        author_name: req.body.name,
         blogpost_id: req.body.blogpost_id,
         body: req.body.body
       },['author_id', 'blogpost_id', 'body'])
@@ -150,7 +152,7 @@ router.get('/comment/:id', (req, res) => {
   knex('comment')
   .innerJoin('blogpost','comment.blogpost_id','blogpost.id')
   .innerJoin('author','blogpost.author_id','author.id')
-  .select('author.name','blogpost.id','comment.create_at','comment.body')
+  .select('comment.author_name','comment.blogpost_id','comment.create_at','comment.body','comment.id')
   .where('blogpost_id', req.params.id)
   .then( result => {
     console.log(result)
@@ -158,12 +160,12 @@ router.get('/comment/:id', (req, res) => {
   })
 })
 
-router.get('/comment/:id', (req, res) => {
-  BlogComment().where('id', req.params.id).first()
-  .then( result => {
-    res.json(result)
-  })
-})
+// router.get('/comment/:id', (req, res) => {
+//   BlogComment().where('id', req.params.id).first()
+//   .then( result => {
+//     res.json(result)
+//   })
+// })
 
 
 

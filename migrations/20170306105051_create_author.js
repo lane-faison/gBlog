@@ -3,7 +3,7 @@ exports.up = (knex, Promise) => {
   return knex.schema.createTable('author', table => {
     table.increments()
     table.string('email').unique()
-    table.string('name')
+    table.string('name').unique()
   })
 }
 
