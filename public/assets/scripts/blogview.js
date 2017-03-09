@@ -13,9 +13,9 @@ $(document).ready( () => {
 
     $('.blogSpot').append(`<div class="jumbotron">
     <div class="container">
-    <img class="jumbotron-img" src=${data.image}>
+    <div class="imageContainer"><img class="hanger" src="./assets/images/wire-hang.png"><img class="jumbotron-img" src=${data.image}></div>
     <h2>${data.title}</h2>
-    <h4>Written by ${data.name}</h4>
+    <h4 class="writtenBy">Written by ${data.name}</h4>
     <h5>Posted: ${date}</h5>
     <p>${data.body}</p>
     <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
