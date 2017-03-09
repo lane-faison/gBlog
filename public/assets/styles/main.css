@@ -164,7 +164,7 @@ form {
 .form-main {
   margin: 150px;
   background: #eee;
-  border-radius: 25px;
+  border-radius: 10px;
   width: 700px;
   height: 781px;
 }
@@ -240,8 +240,12 @@ input[type="link"] {
   color: #fff;
 }
 
+.jumbotron {
+  border-radius: 10px;
+}
+
 .jumbotron-img {
-  width: 75%;
+  width: 60%;
 }
 
 .blogview-btns {
@@ -253,8 +257,20 @@ input[type="link"] {
   margin: 20px;
 }
 
-.btn-edit, .btn-delete {
-  background: red;
+.btn-edit {
+  background: #388bff;
+  }
+
+.btn-edit:hover {
+  background: #0066f5;
+}
+
+.btn-delete {
+  background: #f05656;
+}
+
+.btn-delete:hover {
+  background: #eb1e1e;
 }
 
 .commentSpot {
@@ -262,9 +278,22 @@ input[type="link"] {
   background: #fff;
   margin-bottom: 100px;
   display: none;
+  border-radius: 10px;
+}
+
+.editCommentSpot {
+  color: #000;
+  background: #fff;
+  margin-bottom: 100px;
+  display: none;
+  border-radius: 10px;
 }
 
 .eachComment {
   margin: 10px 0;
   border: 1px solid #000;
+}
+
+.view-main {
+  margin: 100px 150px;
 }

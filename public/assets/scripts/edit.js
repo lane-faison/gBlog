@@ -48,12 +48,6 @@ $(document).on('click', '.add-blog-btn', (event) => {
         console.log("Something isn't working")
       }
     })
-
-
-    // $.put(`/blogs/blogpost/${idBlog}`, updatedBlogpost, (result) => {
-    //   console.log(result)
-    // })
-
   }
 })
 

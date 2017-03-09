@@ -43,10 +43,11 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <main>
+    <main class="view-main">
       <div class="blogSpot">
     <!-- jQuery appends blogpost here -->
       </div>
+      <!-- Hidden ADD COMMENT Section -->
       <div class="commentSpot">
         <form>
           <div class="form-group">
@@ -63,6 +64,18 @@
           </div>
           <div class="response-div">
             <button type="submit" class="add-comment-btn btn btn-default">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!-- Hidden EDIT COMMENT Section -->
+      <div class="editCommentSpot">
+        <form>
+          <div class="form-group">
+            <label for="InputBlog">Comment</label>
+            <textarea class="form-control" id="EditComment"></textarea>
+          </div>
+          <div class="response-div">
+            <button type="submit" class="edit-comment-submit btn btn-default">Update</button>
           </div>
         </form>
       </div>
