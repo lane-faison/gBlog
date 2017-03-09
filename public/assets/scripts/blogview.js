@@ -19,14 +19,14 @@ $(document).ready( () => {
     <h5>Posted: ${date}</h5>
     <p>${data.body}</p>
     <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
-    </p><p><a class="btn btn-primary btn-blogview btn-delete btn-lg" href="#" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></p>
+    </p><p><a id=${data.id} class="btn btn-post-delete btn-primary btn-blogview btn-delete btn-lg" href="#" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></p>
     </div>
     <section class="comment-section">
     <p>comments</p>
     </section></div></div>`)
 
     // GET THE BLOGPOST'S COMMENTS
-    $.get(`/blogs/comment/${data.id}`, commentData => {
+    $.get(`/blogs/post/${data.id}/comment`, commentData => {
       console.log(commentData)
 
       for (var i = 0; i < commentData.length; i++) {
@@ -37,6 +37,8 @@ $(document).ready( () => {
           <p>${commentData[i].body}</p>
           <p><a id="${commentData[i].id}" class="btn btn-comment-edit btn-primary btn-blogview btn-edit btn-lg" href="#" role="button">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+          </a></p><p><a id="${commentData[i].id}" class="btn btn-comment-delete btn-primary btn-blogview btn-delete btn-lg" href="#" role="button">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true">
           </a></p></div>`)
 
       }
@@ -46,7 +48,7 @@ $(document).ready( () => {
   })
 })
 
-//REVEALING COMMENT SECTION
+//REVEALING NEW COMMENT SECTION
 $(document).on('click','.btn-comment', (event) => {
   event.preventDefault()
   $('.commentSpot').show()
@@ -78,11 +80,7 @@ $(document).on('click','.add-comment-btn', function () {
   else {
     event.preventDefault()
     $.post('/blogs/comment', newComment, (result) => {
-      console.log(result)
-      // $('.commentSpot').hide()
-      $(".commentSpot").fadeOut( "slow", function() {
-        // Animation complete.
-      })
+      $(".commentSpot").fadeOut("slow")
       location.reload()
     })
   }
@@ -90,9 +88,21 @@ $(document).on('click','.add-comment-btn', function () {
 
 //REVEALING EDIT COMMENT SECTION
 $(document).on('click','.btn-comment-edit', (event) => {
+
   event.preventDefault()
-  $('.editCommentSpot').show()
-  $("html, body").animate({ scrollTop: $(document).height() }, 3000);
+
+  var commentValue = $(event.currentTarget).attr('id')
+
+  $.get(`blogs/comment/${commentValue}`, (result) => {
+
+    $('#EditComment').val(result.body)
+
+  })
+  $('.commentSpot').fadeOut('slow')
+  $('.editCommentSpot').fadeIn('slow')
+
+  $("html, body").animate({ scrollTop: $(document).height() }, 3000)
+
 })
 
 // UPDATING A COMMENT
@@ -136,6 +146,46 @@ $(document).on('click', '.edit-comment-submit', (event) => {
     })
   }
 })
+
+// DELETING A COMMENT
+$(document).on('click', '.btn-comment-delete', (event) => {
+  event.preventDefault()
+
+  var commentId = $(event.currentTarget).attr('id')
+
+  $.ajax({
+    url: `/blogs/comment/${commentId}`,
+    type: 'DELETE',
+    success: function (result) {
+      console.log('Comment successfully deleted')
+      location.reload()
+    },
+    error: function (result) {
+      console.log('Something went wrong when trying to delete')
+    }
+  })
+})
+
+// DELETING THE ENTIRE POST
+$(document).on('click', '.btn-post-delete', (event) => {
+  event.preventDefault()
+
+  var postId = $(event.currentTarget).attr('id')
+  console.log(postId)
+
+  $.ajax({
+    url: `/blogs/blogpost/${postId}`,
+    type: 'DELETE',
+    success: function (result) {
+      console.log('Post successfully deleted')
+      location.reload()
+    },
+    error: function (result) {
+      console.log('Something went wrong when trying to delete this post')
+    }
+  })
+})
+
 
 function getUrlParameter(sParam) {
   const sPageURL = decodeURIComponent(window.location.search.substring(1))

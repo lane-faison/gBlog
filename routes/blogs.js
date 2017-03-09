@@ -141,8 +141,8 @@ router.get('/blogpost/:id', (req, res) => {
   })
 })
 
-// READ COMMENTS
-router.get('/comment/:id', (req, res) => {
+// READ POST COMMENTS
+router.get('/post/:id/comment/', (req, res) => {
   knex('comment')
   .innerJoin('blogpost','comment.blogpost_id','blogpost.id')
   .innerJoin('author','blogpost.author_id','author.id')
@@ -158,6 +158,7 @@ router.get('/comment/:id', (req, res) => {
 router.get('/comment/:id', (req, res) => {
   BlogComment().where('id', req.params.id).first()
   .then( result => {
+    console.log(result)
     res.json(result)
   })
 })
