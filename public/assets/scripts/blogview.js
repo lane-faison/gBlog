@@ -25,13 +25,13 @@ $(document).ready( () => {
     <p>comments</p>
     </section></div></div>`)
 
-    $.get(`/blogs/comment/${data.id}`, data => {
-      console.log(data)
-      for (var i = 0; i < data.length; i++) {
+    $.get(`/blogs/comment/${data.id}`, commentData => {
+      console.log(commentData)
+      for (var i = 0; i < commentData.length; i++) {
         $('.comment-section').append(
-          `<div class="eachComment"><h4>${data[i].name}</h4>
-          <h5>Posted: ${data[i].create_at}</h5>
-          <p>${data[i].body}</p></div>`)
+          `<div class="eachComment"><h4>${commentData[i].author_name}</h4>
+          <h5>Posted: ${commentData[i].create_at}</h5>
+          <p>${commentData[i].body}</p></div>`)
 
       }
       // COMMENT BUTTON
@@ -57,6 +57,9 @@ $(document).on('click','.add-comment-btn', function () {
     body: $("#CommentComment").val(),
     blogpost_id: idBlog
   }
+
+  console.log('new comment below')
+  console.log(newComment)
 
   // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
   if ($.trim($('#CommentName').val()) === "" || $.trim($('#CommentEmail').val()) === "" || $.trim($('#CommentComment').val()) === "") {
