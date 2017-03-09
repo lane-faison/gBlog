@@ -2,9 +2,9 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable('comment', table => {
     table.increments()
-    table.integer('author_id').references('author.id')
-    table.integer('blogpost_id').references('blogpost.id')
-    table.string('author_name').references('author.name')
+    table.integer('author_id').references('author.id').onDelete('cascade')
+    table.integer('blogpost_id').references('blogpost.id').onDelete('cascade')
+    table.string('author_name').references('author.name').onDelete('cascade')
     table.text('body')
     table.timestamp('create_at').defaultTo(knex.fn.now())
   })

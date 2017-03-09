@@ -273,6 +273,11 @@ input[type="link"] {
   background: #eb1e1e;
 }
 
+.comment-section > :first-child {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .commentSpot {
   color: #000;
   background: #fff;
@@ -290,10 +295,47 @@ input[type="link"] {
 }
 
 .eachComment {
+  display: flex;
+  justify-content: space-between;
   margin: 10px 0;
-  border: 1px solid #000;
+  border-radius: 5px;
+  background: #ddd;
+}
+
+.comment-btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.comment-btn {
+  margin: 10px;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  padding-top: 5px;
+  background: #999;
+}
+
+.name-time-comment {
+  margin-left: 20px;
 }
 
 .view-main {
   margin: 100px 150px;
+}
+
+.deleteSection {
+  display: none;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+
+.deleteSection img {
+  width: 400px;
+}
+
+.deleteSection h3 {
+  color: #eee;
 }

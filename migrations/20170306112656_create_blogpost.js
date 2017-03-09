@@ -2,7 +2,7 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable('blogpost', table => {
     table.increments()
-    table.integer('author_id').references('author.id').notNullable()
+    table.integer('author_id').references('author.id').notNullable().onDelete('cascade')
     table.string('title')
     table.text('body')
     table.string('image')

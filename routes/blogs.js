@@ -133,6 +133,9 @@ router.get('/blogpost/:id', (req, res) => {
   .select('blogpost.*','author.name')
   .where('blogpost.id', req.params.id).first()
   .then( result => {
+    if (!result) {
+      throw new Error('No post found!')
+    }
     res.json(result)
   })
   .catch( result => {

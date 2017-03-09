@@ -19,10 +19,10 @@ $(document).ready( () => {
     <h5>Posted: ${date}</h5>
     <p>${data.body}</p>
     <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
-    </p><p><a id=${data.id} class="btn btn-post-delete btn-primary btn-blogview btn-delete btn-lg" href="#" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></p>
+    </p><p><a id=${data.id} class="btn btn-post-delete btn-primary btn-blogview btn-delete btn-lg" href="home.html" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></p>
     </div>
     <section class="comment-section">
-    <p>comments</p>
+    <p>Comments</p>
     </section></div></div>`)
 
     // GET THE BLOGPOST'S COMMENTS
@@ -32,19 +32,22 @@ $(document).ready( () => {
       for (var i = 0; i < commentData.length; i++) {
         const date = commentData[i].create_at.slice(0,10)
         $('.comment-section').append(
-          `<div class="eachComment"><h4>${commentData[i].author_name}</h4>
+          `<div class="eachComment"><div class="name-time-comment"><h4>${commentData[i].author_name}</h4>
           <h5>Posted: ${date}</h5>
-          <p>${commentData[i].body}</p>
-          <p><a id="${commentData[i].id}" class="btn btn-comment-edit btn-primary btn-blogview btn-edit btn-lg" href="#" role="button">
+          <p>${commentData[i].body}</p></div>
+          <div class="comment-btns"><p><a id="${commentData[i].id}" class="btn comment-btn btn-comment-edit btn-primary btn-edit btn-lg" href="#" role="button">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true">
-          </a></p><p><a id="${commentData[i].id}" class="btn btn-comment-delete btn-primary btn-blogview btn-delete btn-lg" href="#" role="button">
+          </a></p><p><a id="${commentData[i].id}" class="btn comment-btn btn-comment-delete btn-primary btn-delete btn-lg" href="#" role="button">
           <span class="glyphicon glyphicon-trash" aria-hidden="true">
-          </a></p></div>`)
+          </a></p></div></div>`)
 
       }
       // APPEND COMMENT BUTTON
       $('.comment-section').append(`<p><a class="btn btn-primary btn-comment btn-lg" href="#" role="button">Comment</a></p>`)
     })
+  })
+  .catch(result => {
+    $('.deleteSection').show()
   })
 })
 
@@ -53,7 +56,6 @@ $(document).on('click','.btn-comment', (event) => {
   event.preventDefault()
   $('.commentSpot').show()
   $("html, body").animate({ scrollTop: $(document).height() }, 3000);
-
 })
 
 // CREATING A NEW COMMENT
@@ -169,21 +171,23 @@ $(document).on('click', '.btn-comment-delete', (event) => {
 // DELETING THE ENTIRE POST
 $(document).on('click', '.btn-post-delete', (event) => {
   event.preventDefault()
-
   var postId = $(event.currentTarget).attr('id')
-  console.log(postId)
 
-  $.ajax({
-    url: `/blogs/blogpost/${postId}`,
-    type: 'DELETE',
-    success: function (result) {
-      console.log('Post successfully deleted')
-      location.reload()
-    },
-    error: function (result) {
-      console.log('Something went wrong when trying to delete this post')
-    }
-  })
+  // Confirm whether use wants to delete the blogpost
+  var confirmation = confirm('Are you sure you want to delete the entire post?')
+  if (confirmation === true) {
+    $.ajax({
+      url: `/blogs/blogpost/${postId}`,
+      type: 'DELETE',
+      success: function (result) {
+        console.log('Post successfully deleted')
+        location.reload()
+      },
+      error: function (result) {
+        console.log('Something went wrong when trying to delete this post')
+      }
+    })
+  }
 })
 
 
