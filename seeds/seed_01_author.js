@@ -1,8 +1,8 @@
 
-exports.seed = function(knex, Promise) {
+exports.seed = (knex, Promise) => {
   // Deletes ALL existing entries
   return knex('author').del()
-    .then(function () {
+    .then( () => {
       // Inserts seed entries
       return knex('author').insert([
         {email: 'bob@me.com', name: 'name1'},

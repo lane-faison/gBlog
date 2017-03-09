@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready( () => {
 
   idBlog = getUrlParameter('id')
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
 })
 
 // UPDATING THE BLOGPOST
-$(document).on('click', '.add-blog-btn', function (event) {
+$(document).on('click', '.add-blog-btn', (event) => {
 
   var updatedBlogpost = {
     title: $("#InputTitle").val(),
@@ -35,15 +35,29 @@ $(document).on('click', '.add-blog-btn', function (event) {
   }
   else {
     event.preventDefault()
-    $.put(`/blogs/blogpost/${idBlog}`, updatedBlogpost, function (result) {
-      console.log(result)
+    $.ajax({
+      url: `/blogs/blogpost/${idBlog}`,
+      type: 'PUT',
+      data: updatedBlogpost,
+      success: function (result) {
+        console.log("Post was successfully updated.")
+        $('.back-blog-btn').show()
+        $('.blog-response').show()
+      },
+      error: function (result) {
+        console.log("Something isn't working")
+      }
     })
 
-    $('.back-blog-btn').show()
-    $('.blog-response').show()
+
+    // $.put(`/blogs/blogpost/${idBlog}`, updatedBlogpost, (result) => {
+    //   console.log(result)
+    // })
+
   }
 })
 
+//PULLS ID FROM HTTP REQUEST
 function getUrlParameter(sParam) {
   const sPageURL = decodeURIComponent(window.location.search.substring(1))
   const sURLVariables = sPageURL.split('&')
