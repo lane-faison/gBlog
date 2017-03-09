@@ -1,10 +1,11 @@
 // var count = 0
 
-$(document).ready(function () {
+$(document).ready( () => {
   //GET ALL THE AUTHORS
   $.get('blogs/author', data => {
     authorTotal = data.length
     console.log('Number of authors in database: ' + authorTotal)
+    console.log(data)
   })
 
   //GET ALL THE BLOGPOSTS
@@ -12,7 +13,7 @@ $(document).ready(function () {
     for (var i = 0; i < data.length; i++) {
 
       // count++
-
+      console.log(data[i])
       var bodySlice = data[i].body.slice(0,200) + '...'
 
       $('.blog-space').append(
@@ -22,20 +23,20 @@ $(document).ready(function () {
   })
 })
 
-$(document).on('mouseover','#blog-section', function () {
+$(document).on('mouseover','#blog-section', function() {
   $(this).find('.blog-body').show()
   $(this).find('.blog-name').show()
   $(this).find('.blog-title').hide()
 })
 
-$(document).on('mouseleave','#blog-section', function () {
+$(document).on('mouseleave','#blog-section', function() {
   $(this).find('.blog-body').hide()
   $(this).find('.blog-name').hide()
   $(this).find('.blog-title').show()
 })
 
 // CREATING A NEW BLOG
-$(document).on('click', '.add-blog-btn', function (event) {
+$(document).on('click', '.add-blog-btn', (event) => {
 
   var newBlogpost = {
     email: $('#InputEmail').val(),
@@ -53,7 +54,7 @@ $(document).on('click', '.add-blog-btn', function (event) {
   }
   else {
     event.preventDefault()
-    $.post('/blogs/blogpost', newBlogpost, function (result) {
+    $.post('/blogs/blogpost', newBlogpost, (result) => {
       console.log(result)
     })
 

@@ -60,13 +60,38 @@ router.post('/blogpost/', (req, res) => {
 
 // CREATE COMMENT
 router.post('/comment/', (req, res) => {
-  BlogComment().insert({
-    author_id: req.body.author_id,
-    blogpost_id: req.body.blogpost_id,
-    body: req.params.body
-  }, ['author_id', 'blogpost_id', 'body'])
+
+  var userID;
+
+  knex('author').where('email', req.body.email).select('id')
   .then( result => {
-    res.json(result)
+    console.log("userID found!")
+    userID = result[0].id
+    //Create comment
+    return BlogComment().insert({
+      author_id: userID,
+      blogpost_id: req.body.blogpost_id,
+      body: req.body.body
+    },['author_id', 'blogpost_id', 'body'])
+    .then( result => {
+      res.json(result)
+    })
+  })
+  .catch( result => {
+    console.log(`UserID not found, new userID is ${userID}`)
+    //Create new author
+    knex('author').insert({email: req.body.email, name: req.body.name}, 'id')
+    //Create comment
+    .then( result => {
+      return BlogComment().insert({
+        author_id: result[0],
+        blogpost_id: req.body.blogpost_id,
+        body: req.body.body
+      },['author_id', 'blogpost_id', 'body'])
+      .then( result => {
+        res.json(result)
+      })
+    })
   })
 })
 
@@ -121,20 +146,34 @@ router.get('/blogpost/:id', (req, res) => {
 // })
 
 // READ COMMENTS
-router.get('/comment', (req, res) => {
-  BlogComment().select()
+router.get('/comment/:id', (req, res) => {
+  knex('comment')
+  .innerJoin('blogpost','comment.blogpost_id','blogpost.id')
+  .innerJoin('author','blogpost.author_id','author.id')
+  .select('author.name','blogpost.id','comment.create_at','comment.body')
+  .where('blogpost_id', req.params.id)
   .then( result => {
+    console.log(result)
     res.json(result)
   })
 })
 
-// READ SPECIFIC COMMENT
 router.get('/comment/:id', (req, res) => {
   BlogComment().where('id', req.params.id).first()
   .then( result => {
     res.json(result)
   })
 })
+
+
+
+// BEFORE EDITING READ SPECIFIC COMMENT
+// router.get('/comment/:id', (req, res) => {
+//   BlogComment().where('id', req.params.id).first()
+//   .then( result => {
+//     res.json(result)
+//   })
+// })
 
 //******************** UPDATE ************************//
 // UPDATE AUTHOR
@@ -151,11 +190,11 @@ router.put('/author/:id', (req, res) => {
 // UPDATE BLOGPOST
 router.put('/blogpost/:id', (req, res) => {
   Blogpost().where('id', req.params.id).update({
-    author_id: req.body.author_id,
-    title: req.params.title,
-    body: req.params.body,
-    image: req.params.image
-  }, ['author_id','title','body'])
+    // author_id: req.body.author_id,
+    title: req.body.title,
+    body: req.body.body,
+    image: req.body.image
+  }, ['title','body','image'])
   .then( result => {
     res.json(result)
   })

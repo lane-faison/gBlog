@@ -1,6 +1,6 @@
 var idBlog
 
-$(document).ready(function () {
+$(document).ready( () => {
 
   idBlog = getUrlParameter('id')
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     const date = data.create_at.slice(0,10)
 
-    $('main').append(`<div class="jumbotron">
+    $('.blogSpot').append(`<div class="jumbotron">
     <div class="container">
     <img class="jumbotron-img" src=${data.image}>
     <h2>${data.title}</h2>
@@ -24,8 +24,59 @@ $(document).ready(function () {
     <section class="comment-section">
     <p>comments</p>
     </section></div></div>`)
+
+    $.get(`/blogs/comment/${data.id}`, data => {
+      console.log(data)
+      for (var i = 0; i < data.length; i++) {
+        $('.comment-section').append(
+          `<div class="eachComment"><h4>${data[i].name}</h4>
+          <h5>Posted: ${data[i].create_at}</h5>
+          <p>${data[i].body}</p></div>`)
+
+      }
+      // COMMENT BUTTON
+      $('.comment-section').append(`<p><a class="btn btn-primary btn-comment btn-lg" href="#" role="button">Comment</a></p>`)
+    })
   })
 })
+
+//REVEALING COMMENT SECTION
+$(document).on('click','.btn-comment', (event) => {
+  event.preventDefault()
+  $('.commentSpot').show()
+})
+
+// CREATING A NEW COMMENT
+$(document).on('click','.add-comment-btn', function () {
+
+  // idBlog = getUrlParameter('id')
+
+  var newComment = {
+    email: $('#CommentEmail').val(),
+    name: $('#CommentName').val(),
+    body: $("#CommentComment").val(),
+    blogpost_id: idBlog
+  }
+
+  // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
+  if ($.trim($('#CommentName').val()) === "" || $.trim($('#CommentEmail').val()) === "" || $.trim($('#CommentComment').val()) === "") {
+    event.preventDefault()
+    alert('Please complete the entire comment form.')
+    return false
+  }
+  else {
+    event.preventDefault()
+    $.post('/blogs/comment', newComment, (result) => {
+      console.log(result)
+      $('.commentSpot').hide()
+    })
+  }
+})
+
+
+
+
+
 
 function getUrlParameter(sParam) {
   const sPageURL = decodeURIComponent(window.location.search.substring(1))

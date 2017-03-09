@@ -256,3 +256,15 @@ input[type="link"] {
 .btn-edit, .btn-delete {
   background: red;
 }
+
+.commentSpot {
+  color: #000;
+  background: #fff;
+  margin-bottom: 100px;
+  display: none;
+}
+
+.eachComment {
+  margin: 10px 0;
+  border: 1px solid #000;
+}
