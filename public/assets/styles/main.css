@@ -5,13 +5,13 @@ html {
 
 body {
   font-family: sans-serif;
-  background: #333;
+  background: #444;
   margin: 15px;
 }
 
 main {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 /****************** STYLING FOR ALL BUTTONS *******************/
@@ -64,7 +64,7 @@ p .btn-comment:hover span, button:hover span {
 }
 
 .btn-blogview {
-  margin: 10px;
+  margin: 10px 10px 50px 0;
 }
 
 .btn-delete:hover {
@@ -185,6 +185,11 @@ a.navbar-brand {
 
 .row .col-sm-6, .row .col-md-4 {
   padding: 0;
+  padding-bottom: 10px;
+}
+
+.blog-space {
+  /*padding: 0 50px;*/
 }
 
 .blog-image {
@@ -209,7 +214,6 @@ a.navbar-brand {
 }
 .blog-title {
   background: rgba(0, 0, 0, 0.65);
-  font-style: italic;
   text-align: center;
   width: 100%;
   top: 0;
@@ -308,7 +312,7 @@ input[type="link"] {
   border-radius: 25px;
   box-shadow: 8px 12px 8px #111;
   width: 700px;
-  height: 700px;
+  height: 750px;
   margin: 150px;
 }
 

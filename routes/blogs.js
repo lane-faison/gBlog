@@ -118,7 +118,7 @@ router.get('/author', (req, res) => {
 
 // READ BLOGPOSTS
 router.get('/blogpost', (req, res) => {
-  knex('blogpost')
+  knex('blogpost').orderBy('blogpost.id','desc')
   .join('author', 'blogpost.author_id','=','author.id')
   .select('blogpost.*','author.name')
   .then( result => {
@@ -146,14 +146,17 @@ router.get('/blogpost/:id', (req, res) => {
 
 // READ POST COMMENTS
 router.get('/post/:id/comment/', (req, res) => {
-  knex('comment')
+  knex('comment').orderBy('comment.id','asc')
   .innerJoin('blogpost','comment.blogpost_id','blogpost.id')
   .innerJoin('author','blogpost.author_id','author.id')
-  .select('comment.author_name','comment.blogpost_id','comment.create_at','comment.body','comment.id')
+  .select('comment.author_name','comment.author_id','comment.blogpost_id','comment.create_at','comment.body','comment.id')
   .where('blogpost_id', req.params.id)
   .then( result => {
     console.log(result)
     res.json(result)
+  })
+  .catch( result => {
+    res.status(404)
   })
 })
 
