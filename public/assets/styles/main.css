@@ -14,6 +14,73 @@ main {
   margin-bottom: 50px;
 }
 
+/****************** STYLING FOR ALL BUTTONS *******************/
+.btn {
+  background: #fff;
+  color: #365899;
+  border: 3px solid #365899;
+  text-shadow: none;
+  text-decoration: none;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  background: #365899;
+  color: #fff;
+}
+
+.btn:active {
+  background: #365899;
+  color: #fff;
+}
+
+p .btn-comment {
+  margin-top: 30px;
+}
+
+p .btn-comment span, .add-blog-btn span, .back-to-home span {
+  color: #365899;
+}
+
+p .btn-comment span {
+  margin-right: 10px;
+}
+
+p .btn-comment:hover span, button:hover span {
+  color: #fff;
+}
+
+.add-blog-btn, .back-to-home {
+  font-family: sans-serif;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.blogview-btns {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-blogview {
+  margin: 10px;
+}
+
+.btn-delete:hover {
+  background: #eb1e1e;
+  border: 3px solid #e51410;
+}
+
+.comment-btn {
+  margin: 5px;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  padding-top: 5px;
+}
+/***************  ^^^ STYLING FOR ALL BUTTONS ^^^ ***************/
+
 /******************** NAVBAR ********************/
 .navbar-default {
   background: #000;
@@ -135,6 +202,7 @@ a.navbar-brand {
 }
 
 .blog-title, .blog-body, .blog-name {
+  font-family: 'Acme', sans-serif;
   color: #ccc;
   position: absolute;
   left: 0;
@@ -203,17 +271,6 @@ form {
 .response-div {
   display: flex;
   justify-content: space-between;
-}
-
-.add-blog-btn, .back-to-home {
-  background: #8abbff;
-  text-shadow: none;
-  height: 30px;
-}
-
-.add-blog-btn:hover, .back-to-home:hover {
-  background: #47ff66;
-  text-decoration: none;
 }
 
 .back-to-home, .blog-response {
@@ -298,32 +355,8 @@ input[type="link"] {
 }
 
 .hanger {
-  height: 75px;
-}
-
-.blogview-btns {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-blogview {
-  margin: 10px;
-}
-
-.btn-edit {
-  background: #388bff;
-}
-
-.btn-edit:hover {
-  background: #0066f5;
-}
-
-.btn-delete {
-  background: #f05656;
-}
-
-.btn-delete:hover {
-  background: #eb1e1e;
+  width: 30%;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .post-title {
@@ -347,6 +380,10 @@ input[type="link"] {
   font-weight: bold;
 }
 
+.glyphicon-comment {
+  color: #fff;
+}
+
 
 /**************** COMMENT SECTION ******************/
 .comment-section > :first-child {
@@ -364,7 +401,6 @@ input[type="link"] {
   margin-bottom: 100px;
 }
 
-
 .eachComment {
   border-bottom: 2px solid #222;
   display: flex;
@@ -379,15 +415,6 @@ input[type="link"] {
   margin: 0 20px;
 }
 
-.comment-btn {
-  background: #999;
-  margin: 5px;
-  height: 35px;
-  width: 35px;
-  padding: 0;
-  padding-top: 5px;
-}
-
 .name-time-comment-div {
   margin-left: 20px;
 }
@@ -397,19 +424,7 @@ input[type="link"] {
   font-weight: bold;
 }
 
-.btn-comment {
-  margin-top: 30px;
-}
 
-.blue-btn {
-  background: #8abbff;
-  color: #000;
-}
-
-.blue-btn:hover {
-  background: #47ff66;
-  color: #000;
-}
 
 /************** ADD OR EDIT COMMENT SECTION ***************/
 .editCommentSpot {
@@ -425,7 +440,6 @@ input[type="link"] {
 #CommentComment, #EditComment {
   max-width: 600px;
   min-width: 300px;
-
 }
 
 

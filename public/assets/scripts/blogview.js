@@ -43,7 +43,7 @@ $(document).ready( () => {
 
       }
       // APPEND COMMENT BUTTON
-      $('.comment-section').append(`<p><a class="btn btn-primary blue-btn btn-comment btn-lg" href="#" role="button">Comment</a></p>`)
+      $('.comment-section').append(`<p><a class="btn btn-primary btn-comment btn-lg" href="#" role="button"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>Comment</a></p>`)
     })
   })
   .catch(result => {
