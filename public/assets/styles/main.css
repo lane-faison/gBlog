@@ -78,11 +78,16 @@ a.navbar-brand {
   font-weight: bolder;
 }
 
+.navbar-fixed-top {
+  border-bottom: 4px solid #8abbff;
+
+}
 
 /********************** FOOTER **********************/
 .navbar-fixed-bottom {
   display: flex;
   align-items: center;
+  border-top: 4px solid #8abbff;
 }
 
 .footer-link {
@@ -132,7 +137,7 @@ a.navbar-brand {
 .blog-title, .blog-body, .blog-name {
   color: #ccc;
   position: absolute;
-
+  left: 0;
 }
 .blog-title {
   background: rgba(0, 0, 0, 0.65);
@@ -140,7 +145,6 @@ a.navbar-brand {
   text-align: center;
   width: 100%;
   top: 0;
-  left: 0;
   margin-top: 0;
   padding: 15px 50px;
 }
@@ -152,7 +156,6 @@ a.navbar-brand {
   font-size: 18px;
   width: 100%;
   top: 0;
-  left: 0;
   padding: 15px 15px;
 }
 
@@ -164,7 +167,6 @@ a.navbar-brand {
   font-size: 20px;
   width: 100%;
   bottom: 0;
-  left: 0;
   margin-bottom: 0;
   padding: 15px 50px;
 }
@@ -203,18 +205,18 @@ form {
   justify-content: space-between;
 }
 
-.add-blog-btn, .back-blog-btn {
+.add-blog-btn, .back-to-home {
   background: #8abbff;
   text-shadow: none;
   height: 30px;
 }
 
-.add-blog-btn:hover, .back-blog-btn:hover {
+.add-blog-btn:hover, .back-to-home:hover {
   background: #47ff66;
   text-decoration: none;
 }
 
-.back-blog-btn, .blog-response {
+.back-to-home, .blog-response {
   display: none;
 }
 
@@ -239,16 +241,18 @@ input[type="link"] {
   vertical-align: top;
 }
 
-/********************** UPDATING **********************/
+/***************************************************/
+/******************** UPDATING *********************/
+/***************************************************/
 
 .edit-form-main {
-  margin: 150px;
   background: #eee;
   border: 10px solid #222;
   border-radius: 25px;
+  box-shadow: 8px 12px 8px #111;
   width: 700px;
   height: 700px;
-  box-shadow: 8px 12px 8px #111;
+  margin: 150px;
 }
 
 .editHeader {
@@ -264,17 +268,18 @@ input[type="link"] {
   font-weight: bold;
 }
 
-/**********************TESTING**********************/
-.blogIDview {
-  margin-top: 200px;
-  color: #fff;
+/***************************************************/
+/******************** VIEW POST ********************/
+/***************************************************/
+.main-view {
+  margin: 100px 150px;
 }
 
 .jumbotron {
-  padding: 30px 20px;
-  border-radius: 10px;
   border: 10px solid #222;
+  border-radius: 10px;
   box-shadow: 10px 8px 8px #111;
+  padding: 30px 20px;
 }
 
 .imageContainer {
@@ -285,11 +290,11 @@ input[type="link"] {
 }
 
 .jumbotron-img {
-  width: 60%;
-  align-self: center;
   border: 20px solid #222;
   border-image: url("https://userscontent2.emaze.com/images/d00e461c-681b-4264-8163-44b5b4dba7e2/9ca7ec46bf9feb74d47e13ef2f61d9b5.png") 27;
   box-shadow: 8px 12px 8px #444;
+  align-self: center;
+  width: 60%;
 }
 
 .hanger {
@@ -307,7 +312,7 @@ input[type="link"] {
 
 .btn-edit {
   background: #388bff;
-  }
+}
 
 .btn-edit:hover {
   background: #0066f5;
@@ -319,80 +324,6 @@ input[type="link"] {
 
 .btn-delete:hover {
   background: #eb1e1e;
-}
-
-.writtenBy {
-  font-style: italic;
-}
-
-.comment-section > :first-child {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.commentSpot {
-  color: #000;
-  background: #fff;
-  margin-bottom: 100px;
-  display: none;
-  border-radius: 10px;
-  border: 10px solid #222;
-  box-shadow: 10px 8px 8px #111;
-}
-
-.editCommentSpot {
-  color: #000;
-  background: #fff;
-  margin-bottom: 100px;
-  display: none;
-  border-radius: 10px;
-  border-radius: 10px;
-  border: 10px solid #222;
-  box-shadow: 10px 8px 8px #111;
-}
-
-.eachComment {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-  border-radius: 5px;
-  background: #ddd;
-}
-
-.comment-btns {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 20px;
-}
-
-.comment-btn {
-  margin: 5px;
-  height: 35px;
-  width: 35px;
-  padding: 0;
-  padding-top: 5px;
-  background: #999;
-}
-
-.name-time-comment {
-  margin-left: 20px;
-}
-
-.view-main {
-  margin: 100px 150px;
-}
-
-.deleteSection {
-  display: none;
-}
-
-.deleteSection img {
-  width: 400px;
-}
-
-.deleteSection h3 {
-  color: #eee;
 }
 
 .post-title {
@@ -407,6 +338,65 @@ input[type="link"] {
   text-align: justify;
 }
 
+.post-author {
+  font-style: italic;
+}
+
+#author-name {
+  color: #365899;
+  font-weight: bold;
+}
+
+
+/**************** COMMENT SECTION ******************/
+.comment-section > :first-child {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.commentSpot {
+  background: #fff;
+  border-radius: 10px;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
+  color: #000;
+  display: none;
+  margin-bottom: 100px;
+}
+
+
+.eachComment {
+  border-bottom: 2px solid #222;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.comment-btns-div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.comment-btn {
+  background: #999;
+  margin: 5px;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  padding-top: 5px;
+}
+
+.name-time-comment-div {
+  margin-left: 20px;
+}
+
+.name-time-comment-div h4 {
+  color: #365899;
+  font-weight: bold;
+}
+
 .btn-comment {
   margin-top: 30px;
 }
@@ -419,4 +409,35 @@ input[type="link"] {
 .blue-btn:hover {
   background: #47ff66;
   color: #000;
+}
+
+/************** ADD OR EDIT COMMENT SECTION ***************/
+.editCommentSpot {
+  background: #fff;
+  border-radius: 10px;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
+  color: #000;
+  display: none;
+  margin-bottom: 100px;
+}
+
+#CommentComment, #EditComment {
+  max-width: 600px;
+  min-width: 300px;
+
+}
+
+
+/************** HIDDEN DELETE SECTION ***************/
+.deleteSection {
+  display: none;
+}
+
+.deleteSection img {
+  width: 400px;
+}
+
+.deleteSection h3 {
+  color: #eee;
 }

@@ -58,7 +58,7 @@ $(document).on('click', '.add-blog-btn', (event) => {
       console.log(result)
     })
 
-    $('.back-blog-btn').show()
+    $('.back-to-home').show()
     $('.blog-response').show()
   }
 })

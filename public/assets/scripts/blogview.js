@@ -15,7 +15,7 @@ $(document).ready( () => {
     <div class="container">
     <div class="imageContainer"><img class="hanger" src="./assets/images/wire-hang.png"><img class="jumbotron-img" src=${data.image}></div>
     <h2 class="post-title">${data.title}</h2>
-    <h4 class="writtenBy">Written by ${data.name}</h4>
+    <h4 class="post-author">Written by <span id="author-name">${data.name}</span></h4>
     <h5 class="post-date">Posted: ${date}</h5>
     <p class="post-body">${data.body}</p>
     <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
@@ -32,10 +32,10 @@ $(document).ready( () => {
       for (var i = 0; i < commentData.length; i++) {
         const date = commentData[i].create_at.slice(0,10)
         $('.comment-section').append(
-          `<div class="eachComment"><div class="name-time-comment"><h4>${commentData[i].author_name}</h4>
+          `<div class="eachComment"><div class="name-time-comment-div"><h4>${commentData[i].author_name}</h4>
           <h5>Posted: ${date}</h5>
           <p>${commentData[i].body}</p></div>
-          <div class="comment-btns"><p><a id="${commentData[i].id}" class="btn comment-btn btn-comment-edit btn-primary btn-edit btn-lg" href="#" role="button">
+          <div class="comment-btns-div"><p><a id="${commentData[i].id}" class="btn comment-btn btn-comment-edit btn-primary btn-edit btn-lg" href="#" role="button">
           <span class="glyphicon glyphicon-pencil" aria-hidden="true">
           </a></p><p><a id="${commentData[i].id}" class="btn comment-btn btn-comment-delete btn-primary btn-delete btn-lg" href="#" role="button">
           <span class="glyphicon glyphicon-trash" aria-hidden="true">
@@ -54,7 +54,8 @@ $(document).ready( () => {
 //REVEALING NEW COMMENT SECTION
 $(document).on('click','.btn-comment', (event) => {
   event.preventDefault()
-  $('.commentSpot').show()
+  $('.commentSpot').fadeIn()
+  $('.editCommentSpot').fadeOut()
   $("html, body").animate({ scrollTop: $(document).height() }, 3000);
 })
 
