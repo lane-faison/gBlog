@@ -7,8 +7,6 @@ $(document).ready( () => {
   //GET THE BLOGPOST
   $.get(`/blogs/blogpost/${idBlog}`, data => {
 
-    console.log(data)
-
     const date = data.create_at.slice(0,10)
 
     $('.blogSpot').append(`<div class="jumbotron">
@@ -27,6 +25,7 @@ $(document).ready( () => {
 
     // GET THE BLOGPOST'S COMMENTS
     $.get(`/blogs/post/${data.id}/comment`, commentData => {
+
       console.log(commentData)
 
       for (var i = 0; i < commentData.length; i++) {
@@ -71,9 +70,6 @@ $(document).on('click','.add-comment-btn', function () {
     blogpost_id: idBlog
   }
 
-  console.log('new comment below')
-  console.log(newComment)
-
   // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
   if ($.trim($('#CommentName').val()) === "" || $.trim($('#CommentEmail').val()) === "" || $.trim($('#CommentComment').val()) === "") {
     event.preventDefault()
@@ -91,64 +87,54 @@ $(document).on('click','.add-comment-btn', function () {
 
 //REVEALING EDIT COMMENT SECTION
 $(document).on('click','.btn-comment-edit', (event) => {
-
   event.preventDefault()
-
   var commentValue = $(event.currentTarget).attr('id')
 
   $.get(`blogs/comment/${commentValue}`, (result) => {
-
     $('#EditComment').val(result.body)
-
   })
+
   $('.commentSpot').fadeOut('slow')
   $('.editCommentSpot').fadeIn('slow')
-
   $("html, body").animate({ scrollTop: $(document).height() }, 3000)
 
-})
-
-// UPDATING A COMMENT
-$(document).on('click', '.edit-comment-submit', (event) => {
-
-  event.preventDefault()
-
-  // Only allowing body to be updated
-  var updatedComment = {
-    body: $("#EditComment").val()
-  }
-
-  // CHECK FOR BLANK ENTRIES AND PREVENT SUBMIT IF ANY
-  if ($.trim($('#EditComment').val()) === "") {
-    event.preventDefault()
-    alert('You must enter something in the comment box!')
-    return false
-  }
-  else {
+  // UPDATING A COMMENT
+  $(document).on('click', '.edit-comment-submit', (event) => {
     event.preventDefault()
 
-    var commentId = $('.btn-comment-edit').attr('id')
+    // Only allowing body to be updated
+    var updatedComment = {
+      body: $("#EditComment").val()
+    }
 
-    console.log(commentId)
-    console.log(updatedComment);
+    // CHECK FOR BLANK ENTRY AND PREVENT SUBMIT IF BLANK
+    if ($.trim($('#EditComment').val()) === "") {
+      event.preventDefault()
+      alert('You must enter something in the comment box!')
+      return false
+    }
+    else {
+      event.preventDefault()
 
-    $.ajax({
-      url: `/blogs/comment/${commentId}`,
-      type: 'PUT',
-      data: updatedComment,
-      success: function (result) {
-        console.log("Comment was successfully updated.")
-        $(".editCommentSpot").fadeOut( "slow", function() {
-          //animation complete
-        })
-        location.reload()
-      },
-      error: function (result) {
-        console.log("Something isn't working")
-      }
-    })
-  }
+      var commentId = $('.btn-comment-edit').attr('id')
+
+      $.ajax({
+        url: `/blogs/comment/${commentValue}`,
+        type: 'PUT',
+        data: updatedComment,
+        success: function (result) {
+          console.log("Comment was successfully updated.")
+          $(".editCommentSpot").fadeOut('slow')
+          location.reload()
+        },
+        error: function (result) {
+          console.log("Something isn't working")
+        }
+      })
+    }
+  })
 })
+
 
 // DELETING A COMMENT
 $(document).on('click', '.btn-comment-delete', (event) => {

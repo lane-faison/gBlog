@@ -41,7 +41,7 @@ $(document).on('click', '.add-blog-btn', (event) => {
       data: updatedBlogpost,
       success: function (result) {
         console.log("Post was successfully updated.")
-        $('.back-blog-btn').show()
+        $('.back-to-home').show()
         $('.blog-response').show()
       },
       error: function (result) {
