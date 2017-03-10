@@ -5,12 +5,12 @@ exports.seed = (knex, Promise) => {
     .then( () => {
       // Inserts seed entries
       return knex('author').insert([
-        {email: 'bob@me.com', name: 'jimmy'},
-        {email: 'mat@me.com', name: 'matt'},
-        {email: 'tom@me.com', name: 'tom'},
-        {email: 'kim@me.com', name: 'kim'},
-        {email: 'jon@me.com', name: 'jon'},
-        {email: 'wes@me.com', name: 'wes'}
+        {email: 'bob@me.com', name: 'Robert Hart'},
+        {email: 'mat@me.com', name: 'Matthew Moore'},
+        {email: 'tom@me.com', name: 'Tom Jones'},
+        {email: 'kim@me.com', name: 'Kim Stewart'},
+        {email: 'jon@me.com', name: 'Jon Smith'},
+        {email: 'wes@me.com', name: 'Wes Westin'}
       ])
     })
 }

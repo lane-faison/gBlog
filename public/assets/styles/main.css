@@ -1,5 +1,4 @@
 
-/* force scrollbar */
 html {
   overflow-y: scroll;
 }
@@ -16,7 +15,6 @@ main {
 }
 
 /******************** NAVBAR ********************/
-
 .navbar-default {
   background: #000;
   color: #eee;
@@ -27,6 +25,7 @@ main {
   font-size: 30px;
   color: #8abbff;
   letter-spacing: 0.1em;
+  margin-right: 30px;
 }
 
 .active {
@@ -59,6 +58,11 @@ a.navbar-brand {
   align-items: center;
 }
 
+#blog-nav-left {
+  display: flex;
+  align-items: center;
+}
+
 #blog-nav-left>li>a {
   color: #eee;
   text-shadow: none;
@@ -73,6 +77,7 @@ a.navbar-brand {
   color: #000;
   font-weight: bolder;
 }
+
 
 /********************** FOOTER **********************/
 .navbar-fixed-bottom {
@@ -93,13 +98,6 @@ a.navbar-brand {
 /***************************************************/
 /******************** HOME PAGE ********************/
 /***************************************************/
-
-/******************** GRID ITEM ********************/
-
-.blog-title, .blog-body {
-  text-align: center;
-}
-
 .thumbnail {
   padding: none;
   border: none;
@@ -131,37 +129,44 @@ a.navbar-brand {
   transition: transform 0.8s ease;
 }
 
-
-.blog-title {
-  color: #fff;
+.blog-title, .blog-body, .blog-name {
+  color: #ccc;
   position: absolute;
-  top: 65%;
+
+}
+.blog-title {
+  background: rgba(0, 0, 0, 0.65);
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  top: 0;
   left: 0;
+  margin-top: 0;
   padding: 15px 50px;
-  background: rgba(0, 0, 0, 0.4);
 }
 
 .blog-body {
   display: none;
-  color: #fff;
-  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: justify;
+  font-size: 18px;
+  width: 100%;
   top: 0;
   left: 0;
   padding: 15px 15px;
-  background: rgba(0, 0, 0, 0.5);
-  font-size: 18px;
 }
 
 .blog-name {
   display: none;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 15px 50px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
   font-style: italic;
   font-size: 20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  padding: 15px 50px;
 }
 
 .blog-square:hover .blog-image {
@@ -172,17 +177,27 @@ a.navbar-brand {
 /******************* CREATE BLOG *******************/
 /***************************************************/
 form {
-  padding: 50px;
+  padding: 20px 50px;
 }
 
 .form-main {
-  margin: 150px;
+  margin: 10%;
   background: #eee;
   border-radius: 10px;
   width: 700px;
-  height: 781px;
+  height: 810px;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
 }
 
+.form-title {
+  font-family: 'Kaushan Script', cursive;
+  letter-spacing: 0.05em;
+}
+
+.form-main h6 {
+  color: #ff3d3d;
+}
 .response-div {
   display: flex;
   justify-content: space-between;
@@ -196,7 +211,6 @@ form {
 
 .add-blog-btn:hover, .back-blog-btn:hover {
   background: #47ff66;
-  font-weight: bold;
   text-decoration: none;
 }
 
@@ -230,9 +244,11 @@ input[type="link"] {
 .edit-form-main {
   margin: 150px;
   background: #eee;
+  border: 10px solid #222;
   border-radius: 25px;
   width: 700px;
-  height: 750px;
+  height: 700px;
+  box-shadow: 8px 12px 8px #111;
 }
 
 .editHeader {
@@ -255,21 +271,24 @@ input[type="link"] {
 }
 
 .jumbotron {
+  padding: 30px 20px;
   border-radius: 10px;
-  border: 15px solid #222;
-  padding: 30px 0;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
 }
 
 .imageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .jumbotron-img {
   width: 60%;
   align-self: center;
-  border: 15px solid #222;
+  border: 20px solid #222;
+  border-image: url("https://userscontent2.emaze.com/images/d00e461c-681b-4264-8163-44b5b4dba7e2/9ca7ec46bf9feb74d47e13ef2f61d9b5.png") 27;
   box-shadow: 8px 12px 8px #444;
 }
 
@@ -317,6 +336,8 @@ input[type="link"] {
   margin-bottom: 100px;
   display: none;
   border-radius: 10px;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
 }
 
 .editCommentSpot {
@@ -325,6 +346,9 @@ input[type="link"] {
   margin-bottom: 100px;
   display: none;
   border-radius: 10px;
+  border-radius: 10px;
+  border: 10px solid #222;
+  box-shadow: 10px 8px 8px #111;
 }
 
 .eachComment {
@@ -339,6 +363,7 @@ input[type="link"] {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 0 20px;
 }
 
 .comment-btn {
@@ -360,9 +385,6 @@ input[type="link"] {
 
 .deleteSection {
   display: none;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
 }
 
 .deleteSection img {
@@ -371,4 +393,30 @@ input[type="link"] {
 
 .deleteSection h3 {
   color: #eee;
+}
+
+.post-title {
+  font-family: 'Kaushan Script', cursive;
+  letter-spacing: 0.05em;
+}
+.post-date {
+  margin-bottom: 50px;
+}
+
+.post-body {
+  text-align: justify;
+}
+
+.btn-comment {
+  margin-top: 30px;
+}
+
+.blue-btn {
+  background: #8abbff;
+  color: #000;
+}
+
+.blue-btn:hover {
+  background: #47ff66;
+  color: #000;
 }

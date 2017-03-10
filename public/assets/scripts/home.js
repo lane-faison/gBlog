@@ -24,15 +24,15 @@ $(document).ready( () => {
 })
 
 $(document).on('mouseover','#blog-section', function() {
-  $(this).find('.blog-body').show()
-  $(this).find('.blog-name').show()
-  $(this).find('.blog-title').hide()
+  $(this).find('.blog-title').fadeOut('slow')
+  $(this).find('.blog-body').fadeIn('slow')
+  $(this).find('.blog-name').fadeIn('slow')
 })
 
 $(document).on('mouseleave','#blog-section', function() {
-  $(this).find('.blog-body').hide()
-  $(this).find('.blog-name').hide()
-  $(this).find('.blog-title').show()
+  $(this).find('.blog-body').fadeOut('slow')
+  $(this).find('.blog-name').fadeOut('slow')
+  $(this).find('.blog-title').fadeIn('slow')
 })
 
 // CREATING A NEW BLOG

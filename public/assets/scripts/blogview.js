@@ -14,10 +14,10 @@ $(document).ready( () => {
     $('.blogSpot').append(`<div class="jumbotron">
     <div class="container">
     <div class="imageContainer"><img class="hanger" src="./assets/images/wire-hang.png"><img class="jumbotron-img" src=${data.image}></div>
-    <h2>${data.title}</h2>
+    <h2 class="post-title">${data.title}</h2>
     <h4 class="writtenBy">Written by ${data.name}</h4>
-    <h5>Posted: ${date}</h5>
-    <p>${data.body}</p>
+    <h5 class="post-date">Posted: ${date}</h5>
+    <p class="post-body">${data.body}</p>
     <div class="blogview-btns"><p><a class="btn btn-primary btn-blogview btn-edit btn-lg" href="edit.html?id=${data.id}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
     </p><p><a id=${data.id} class="btn btn-post-delete btn-primary btn-blogview btn-delete btn-lg" href="home.html" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></p>
     </div>
@@ -43,7 +43,7 @@ $(document).ready( () => {
 
       }
       // APPEND COMMENT BUTTON
-      $('.comment-section').append(`<p><a class="btn btn-primary btn-comment btn-lg" href="#" role="button">Comment</a></p>`)
+      $('.comment-section').append(`<p><a class="btn btn-primary blue-btn btn-comment btn-lg" href="#" role="button">Comment</a></p>`)
     })
   })
   .catch(result => {
