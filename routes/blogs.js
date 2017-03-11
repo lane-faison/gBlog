@@ -20,7 +20,7 @@ function BlogComment() { return knex('comment') }
 // })
 
 // CREATE BLOGPOST
-router.post('/blogpost/', (req, res) => {
+router.post('//', (req, res) => {
 
   var userID;
 
