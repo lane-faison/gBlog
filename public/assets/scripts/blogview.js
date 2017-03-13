@@ -26,8 +26,6 @@ $(document).ready( () => {
     // GET THE BLOGPOST'S COMMENTS
     $.get(`/blogs/post/${data.id}/comment`, commentData => {
 
-      console.log(commentData)
-
       for (var i = 0; i < commentData.length; i++) {
         const date = commentData[i].create_at.slice(0,10)
         $('.comment-section').append(
@@ -60,8 +58,6 @@ $(document).on('click','.btn-comment', (event) => {
 
 // CREATING A NEW COMMENT
 $(document).on('click','.add-comment-btn', function () {
-
-  // idBlog = getUrlParameter('id')
 
   var newComment = {
     email: $('#CommentEmail').val(),
