@@ -1,19 +1,13 @@
-// var count = 0
-
 $(document).ready( () => {
   //GET ALL THE AUTHORS
   $.get('blogs/author', data => {
     authorTotal = data.length
-    console.log('Number of authors in database: ' + authorTotal)
-    console.log(data)
   })
 
   //GET ALL THE BLOGPOSTS
   $.get('/blogs/blogpost', data => {
     for (var i = 0; i < data.length; i++) {
 
-      // count++
-      console.log(data[i])
       var bodySlice = data[i].body.slice(0,200) + '...'
 
       $('.blog-space').append(
@@ -55,7 +49,7 @@ $(document).on('click', '.add-blog-btn', (event) => {
   else {
     event.preventDefault()
     $.post('/blogs/blogpost', newBlogpost, (result) => {
-      console.log(result)
+      res.json(result)
     })
 
     $('.back-to-home').show()

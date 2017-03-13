@@ -7,29 +7,15 @@ function Blogpost() { return knex('blogpost') }
 function BlogComment() { return knex('comment') }
 
 //******************** CREATE ************************//
-// CREATE AUTHOR
-
-// router.post('/author/', (req, res) => {
-//   Author().insert({
-//     email: req.body.email,
-//     name: req.body.name
-//   },['id', 'email', 'name'])
-//   .then( result => {
-//     res.json(result)
-//   })
-// })
-
 // CREATE BLOGPOST
-router.post('//', (req, res) => {
+router.post('/blogpost/', (req, res) => {
 
   var userID;
 
   knex('author').where('email', req.body.email).select('id')
   .then( result => {
-    console.log("userID found!")
     userID = result[0].id
-    console.log('result is: ', result);
-    //Create blog
+    // Create blog
     return Blogpost().insert({
       author_id: userID,
       title: req.body.title,
@@ -42,9 +28,9 @@ router.post('//', (req, res) => {
   })
   .catch( result => {
     console.log(`UserID not found, new userID is ${userID}`)
-    //Create new author
+    // Create new author
     knex('author').insert({email: req.body.email, name: req.body.name}, 'id')
-    //Create blog
+    // Create blog
     .then( result => {
       return Blogpost().insert({
         author_id: result[0],
@@ -106,15 +92,6 @@ router.get('/author', (req, res) => {
     res.json(result)
   })
 })
-
-// READ SPECIFIC AUTHOR
-
-// router.get('/author/:id', (req, res) => {
-//   Author().where('id', req.params.id).first()
-//   .then( result => {
-//     res.json(result)
-//   })
-// })
 
 // READ BLOGPOSTS
 router.get('/blogpost', (req, res) => {

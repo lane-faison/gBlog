@@ -5,12 +5,8 @@ $(document).ready( () => {
   //GET THE BLOGPOST
   $.get(`/blogs/blogpost/${idBlog}`, data => {
 
-    console.log(data)
-
     const date = data.create_at.slice(0,10)
 
-    // $('#InputName').val(`${data.name}`)
-    // $('#InputEmail').val(`${data.email}`)
     $('.editHeader').append(`<h2 class="edit-title">${data.title}</h2>`)
     $('#InputTitle').val(`${data.title}`)
     $('#InputImage').val(`${data.image}`)
